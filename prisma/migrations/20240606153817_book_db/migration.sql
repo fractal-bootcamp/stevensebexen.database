@@ -3,7 +3,7 @@ CREATE TABLE "Book" (
     "id" INTEGER NOT NULL,
     "title" TEXT NOT NULL,
     "authorId" INTEGER NOT NULL,
-    "isbn" INTEGER NOT NULL,
+    "isbn" BIGINT NOT NULL,
     "rentedById" INTEGER
 );
 
@@ -38,9 +38,6 @@ CREATE TABLE "GenresOnBooks" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Book_id_key" ON "Book"("id");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Book_rentedById_key" ON "Book"("rentedById");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Author_id_key" ON "Author"("id");
