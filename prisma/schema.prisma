@@ -17,8 +17,8 @@ model Book {
   id Int @unique
   title String
   authorId Int
-  isbn Int
-  rentedById Int? @unique
+  isbn BigInt
+  rentedById Int?
 
   author Author @relation(fields: [authorId], references: [id])
   genres GenresOnBooks[]
