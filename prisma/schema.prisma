@@ -46,7 +46,7 @@ model Member {
   email String
   address String
 
-  books Book[]
+  booksRented Book[]
 }
 
 model GenresOnBooks {
