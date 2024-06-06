@@ -33,11 +33,10 @@ async function main() {
   const allBooks = await prisma.book.findMany();
   console.log(allBooks);
 
-  console.log('Deleting books...');
-  await Promise.all([
-    prisma.book.deleteMany(),
-    prisma.author.deleteMany()
-  ]);
+  console.log('Deleting books and author...');
+  await prisma.book.deleteMany();
+  await prisma.author.deleteMany();
+  
   const noBooks = await prisma.book.findMany();
   console.log(noBooks);
   console.log('Done!');
