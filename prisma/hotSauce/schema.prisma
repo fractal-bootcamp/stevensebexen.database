@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL_SAUCE")
+}
+
+model Sauce {
+  id Int @id @default(autoincrement())
+  name String
+  spiciness Int
+
+  peppers PeppersInSauce[]
+}
+
+model Pepper {
+  id Int @id @default(autoincrement())
+  name String
+  spiciness Int
+
+  sauces PeppersInSauce[]
+}
+
+model PeppersInSauce {
+  @@id([sauceId, pepperId])
+  sauceId Int
+  pepperId Int
+
+  sauce Sauce @relation(fields: [sauceId], references: [id])
+  pepper Pepper @relation(fields: [pepperId], references: [id])
+}

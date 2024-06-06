@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "migrate-book": "npx prisma migrate dev --schema ./prisma/book/schema.prisma",
+    "migrate-sauce": "npx prisma migrate dev --schema ./prisma/hotSauce/schema.prisma"
+  },
   "dependencies": {
     "@prisma/client": "^5.12.1",
     "prisma": "^5.12.1",

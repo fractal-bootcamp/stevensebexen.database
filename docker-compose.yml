@@ -1,10 +1,16 @@
 version: "3.9"
 services:
-  postgres:
+  db-book:
     image: postgres:13
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    command: -c fsync=off -c full_page_writes=off -c synchronous_commit=off -c max_connections=500
+      POSTGRES_USER: postgres-book
+      POSTGRES_PASSWORD: postgres-page
     ports:
       - 10002:5432
+  db-sauce:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres-sauce
+      POSTGRES_PASSWORD: postgres-cholula
+    ports:
+      - 10003:5432
